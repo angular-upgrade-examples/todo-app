@@ -1,4 +1,4 @@
-import * as angular from 'angular';
-import {todoAppModule} from './todo-app.module';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {TodoAppModule} from './todo-app.module';
 
-angular.bootstrap(document.querySelector('todo-app')!, [todoAppModule.name]);
+platformBrowserDynamic().bootstrapModule(TodoAppModule);

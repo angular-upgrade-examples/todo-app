@@ -1,4 +1,7 @@
 import * as angular from 'angular';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {UpgradeModule} from '@angular/upgrade/static';
 import {sharedModule} from './shared/shared.module';
 import {todoListModule} from './todo-list/todo-list.module';
 import {todoAppComponent} from './todo-app.component';
@@ -10,3 +13,18 @@ export const todoAppModule = angular.
     todoListModule.name,
   ]).
   component('todoApp', todoAppComponent);
+
+// Main Angular module
+@NgModule({
+  imports: [
+    BrowserModule,
+    UpgradeModule,
+  ],
+})
+export class TodoAppModule {
+  constructor(protected upgrade: UpgradeModule) {}
+
+  ngDoBootstrap() {
+    this.upgrade.bootstrap(document.querySelector('todo-app')!, [todoAppModule.name]);
+  }
+}
