@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {UpgradeModule} from '@angular/upgrade/static';
 import {sharedModule} from './shared/shared.module';
-import {todoListModule} from './todo-list/todo-list.module';
+import {todoListModule, TodoListModule} from './todo-list/todo-list.module';
 import {todoAppComponent} from './todo-app.component';
 
 // Main AngularJS module
@@ -18,6 +18,7 @@ export const todoAppModule = angular.
 @NgModule({
   imports: [
     BrowserModule,
+    TodoListModule,
     UpgradeModule,
   ],
 })
