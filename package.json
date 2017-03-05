@@ -24,9 +24,19 @@
   },
   "homepage": "https://github.com/angular-upgrade-examples/phonecat#readme",
   "dependencies": {
+    "@angular/common": "next",
+    "@angular/compiler": "next",
+    "@angular/core": "next",
+    "@angular/platform-browser": "next",
+    "@angular/platform-browser-dynamic": "next",
+    "@angular/upgrade": "next",
     "angular": "1.6.2",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "5.0.1",
     "shelljs": "^0.7.6",
-    "systemjs": "^0.20.9"
+    "systemjs": "^0.20.9",
+    "zone.js": "0.7.2"
   },
   "devDependencies": {
     "@types/angular": "^1.6.7",
