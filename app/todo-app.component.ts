@@ -2,7 +2,7 @@ import {TodoItem, TodoItems} from './shared/todo-items.service';
 
 export const todoAppComponent: angular.IComponentOptions = {
   template: `
-    <todo-list items="$ctrl.items"></todo-list>
+    <todo-list [items]="$ctrl.items"></todo-list>
   `,
   controller: class TodoAppController {
     items: TodoItem[] = [];
