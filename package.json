@@ -1,0 +1,38 @@
+{
+  "name": "upgraded-phonecat",
+  "version": "1.0.0",
+  "description": "An example project upgrading a simple phonecat app from AngularJS to Angular.",
+  "scripts": {
+    "prebuild": "yarn run clean",
+    "build": "tsc",
+    "clean": "node --eval \"require('shelljs').rm('-rf', 'dist')\"",
+    "serve": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular-upgrade-examples/phonecat.git"
+  },
+  "keywords": [
+    "Angular",
+    "AngularJS",
+    "ngUpgrade"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular-upgrade-examples/phonecat/issues"
+  },
+  "homepage": "https://github.com/angular-upgrade-examples/phonecat#readme",
+  "dependencies": {
+    "angular": "1.6.2",
+    "shelljs": "^0.7.6",
+    "systemjs": "^0.20.9"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.7",
+    "@types/jasmine": "^2.5.43",
+    "@types/systemjs": "^0.20.1",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.2.1"
+  }
+}
