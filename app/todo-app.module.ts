@@ -3,15 +3,12 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
 import {SharedModule} from './shared/shared.module';
-import {todoItemModule} from './todo-item/todo-item.module';
 import {TodoListModule} from './todo-list/todo-list.module';
 import {TodoAppComponent} from './todo-app.component';
 
 // Main AngularJS module
 export const todoAppModule = angular.
-  module('todoApp', [
-    todoItemModule.name,
-  ]).
+  module('todoApp', []).
   directive('todoApp', downgradeComponent({component: TodoAppComponent}));
 
 // Main Angular module

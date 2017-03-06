@@ -1,15 +1,12 @@
-import * as angular from 'angular';
 import {NgModule} from '@angular/core';
-import {todoItemComponent, TodoItemComponentFacade} from './todo-item.component';
-
-// AngularJS todo-item module
-export const todoItemModule = angular.
-  module('todoItem', []).
-  component('todoItem', todoItemComponent);
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {TodoItemComponent} from './todo-item.component';
 
 // Angular todo-item module
 @NgModule({
-  declarations: [TodoItemComponentFacade],
-  exports: [TodoItemComponentFacade],
+  imports: [BrowserModule, FormsModule],
+  declarations: [TodoItemComponent],
+  exports: [TodoItemComponent],
 })
 export class TodoItemModule {}
