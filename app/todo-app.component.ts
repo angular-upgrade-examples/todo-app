@@ -4,6 +4,7 @@ export const appComponent: angular.IComponentOptions = {
   template: `
     <h2>Todo List:</h2>
     <todo-item item="item" ng-repeat="item in $ctrl.items"></todo-item>
+    <todo-app-footer [items]="$ctrl.items" (remove-completed)="$ctrl.onRemoveCompleted()"></todo-app-footer>
   `,
   controller: class AppController {
     items: TodoItem[] = [];
@@ -13,6 +14,10 @@ export const appComponent: angular.IComponentOptions = {
 
     $onInit() {
       this.todoItems.fetch().then(items => this.items = items);
+    }
+
+    onRemoveCompleted() {
+      this.todoItems.removeCompleted();
     }
   },
 };
