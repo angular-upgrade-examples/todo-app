@@ -1,40 +1,29 @@
-import {Directive, ElementRef, Injector} from '@angular/core';
-import {UpgradeComponent} from '@angular/upgrade/static';
+import {Component, OnInit} from '@angular/core';
 import {Logger} from '../shared/logger.service';
 import {TodoItem} from '../shared/todo-items.service';
 
-export const itemComponent: angular.IComponentOptions = {
+@Component({
+  selector: 'todo-item',
   template: `
     <div>
       <label>
-        <input type="checkbox" ng-model="$ctrl.item.completed" />
-        <span ng-style="{textDecoration: $ctrl.item.completed ? 'line-through' : ''}">
-          {{ $ctrl.item.description }}
+        <input type="checkbox" [(ngModel)]="item.completed" />
+        <span [ngStyle]="{textDecoration: item.completed ? 'line-through' : ''}">
+          {{ item.description }}
         </span>
       </label>
     </div>
   `,
-  bindings: {
-    item: '<'
-  },
-  controller: class ItemController {
-    item: TodoItem;
-
-    static $inject = ['logger'];
-    constructor(protected logger: Logger) {}
-
-    $onInit() {
-      this.logger.debug(`Created item: ${this.item.description}`);
-    }
-  },
-};
-
-@Directive({
-  selector: 'todo-item',
-  inputs: ['item']
+  inputs: [
+    'item',
+  ],
 })
-export class ItemComponentFacade extends UpgradeComponent {
-  constructor(elementRef: ElementRef, injector: Injector) {
-    super('todoItem', elementRef, injector);
+export class ItemComponent implements OnInit {
+  item: TodoItem;
+
+  constructor(protected logger: Logger) {}
+
+  ngOnInit() {
+    this.logger.debug(`Created item: ${this.item.description}`);
   }
 }

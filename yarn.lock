@@ -22,6 +22,10 @@
   version "4.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.0.0-rc.2.tgz#59535050e5d0e6141417186eee571296f8e9c3d0"
 
+"@angular/forms@next":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.0.0-rc.2.tgz#6d9df97783b6023d652d97369db13d6ad6c7fa9e"
+
 "@angular/platform-browser-dynamic@next":
   version "4.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.0.0-rc.2.tgz#f2bbab322706dc6361d46647e1e2b7c26f036a1c"
