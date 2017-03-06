@@ -40,23 +40,9 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@angular/upgrade@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/upgrade/-/upgrade-4.0.1.tgz#ce1626acbac8b65f3008b8e1196699eb188afddf"
-
-"@types/angular@^1.6.7":
-  version "1.6.14"
-  resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.6.14.tgz#6923ba9f325b80fd9546c856d147782b551f637a"
-  dependencies:
-    "@types/jquery" "*"
-
 "@types/jasmine@^2.5.47":
   version "2.5.47"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.47.tgz#bbba9bcf0e95e7890c6f4a47394e8bacaa960eb6"
-
-"@types/jquery@*":
-  version "2.0.41"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.41.tgz#b87ba051011f99edbe586d8f97282e7786e01a6d"
 
 "@types/systemjs@^0.20.2":
   version "0.20.2"
@@ -99,10 +85,6 @@ ajv@^4.9.1:
   dependencies:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
-
-angular@1.6.4:
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.4.tgz#03b7b15c01a0802d7e2cf593240e604054dc77fb"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
