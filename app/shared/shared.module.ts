@@ -14,6 +14,11 @@ export const sharedModule = angular.
 @NgModule({
   providers: [
     Logger,
+    {provide: TodoItems, useFactory: todoItemsFactory, deps: ['$injector']},
   ],
 })
 export class SharedModule {}
+
+export function todoItemsFactory($injector: angular.auto.IInjectorService) :TodoItems {
+  return $injector.get('todoItems') as TodoItems;
+}
