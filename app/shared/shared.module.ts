@@ -7,18 +7,13 @@ import {TodoItems} from './todo-items.service';
 // AngularJS shared module
 export const sharedModule = angular.
   module('shared', []).
-  factory('logger', downgradeInjectable(Logger)).
-  service('todoItems', TodoItems);
+  factory('logger', downgradeInjectable(Logger));
 
 // Angular shared module
 @NgModule({
   providers: [
     Logger,
-    {provide: TodoItems, useFactory: todoItemsFactory, deps: ['$injector']},
+    TodoItems,
   ],
 })
 export class SharedModule {}
-
-export function todoItemsFactory($injector: angular.auto.IInjectorService) :TodoItems {
-  return $injector.get('todoItems') as TodoItems;
-}
