@@ -1,3 +1,5 @@
+import {Logger} from './logger.service';
+
 export interface TodoItem {
   description: string;
   completed: boolean;
@@ -9,8 +11,8 @@ export class TodoItems {
     {description: 'Do that', completed: false},
   ];
 
-  static $inject = ['$q'];
-  constructor(protected $q: angular.IQService) {}
+  static $inject = ['$q', 'logger'];
+  constructor(protected $q: angular.IQService, protected logger: Logger) {}
 
   fetch(): angular.IPromise<TodoItem[]> {
     return this.$q.resolve(this.items);
@@ -21,5 +23,7 @@ export class TodoItems {
     completedItems.forEach(item => {
       this.items.splice(this.items.indexOf(item), 1);
     });
+
+    this.logger.debug(`Removed ${completedItems.length} items`);
   }
 }
