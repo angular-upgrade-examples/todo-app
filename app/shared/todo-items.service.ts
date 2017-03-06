@@ -9,10 +9,7 @@ export class TodoItems {
     {description: 'Do that', completed: false},
   ];
 
-  static $inject = ['$q'];
-  constructor(protected $q: angular.IQService) {}
-
-  fetch(): angular.IPromise<TodoItem[]> {
-    return this.$q.resolve([...this.items]);
+  fetch(): Promise<TodoItem[]> {
+    return Promise.resolve([...this.items]);
   }
 }
