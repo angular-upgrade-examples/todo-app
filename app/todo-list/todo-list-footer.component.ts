@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {TodoItem} from '../shared/todo-items.service';
+import {Component, OnInit} from '@angular/core';
+import {TodoItem, TodoItems} from '../shared/todo-items.service';
 
 @Component({
   selector: 'todo-list-footer',
@@ -7,11 +7,8 @@ import {TodoItem} from '../shared/todo-items.service';
     <hr />
     <div>Completed: {{ completedCount }} / {{ totalCount }}</div>
   `,
-  inputs: [
-    'items',
-  ],
 })
-export class TodoListFooterComponent {
+export class TodoListFooterComponent implements OnInit {
   protected items: TodoItem[] = [];
 
   get completedCount():number {
@@ -20,5 +17,11 @@ export class TodoListFooterComponent {
 
   get totalCount(): number {
     return this.items.length;
+  }
+
+  constructor(protected todoItems: TodoItems) {}
+
+  ngOnInit() {
+    this.todoItems.fetch().then(items => this.items = items);
   }
 }

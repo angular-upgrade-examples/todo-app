@@ -6,7 +6,7 @@ import {TodoItem} from '../shared/todo-items.service';
   template: `
     <h2>Todo List:</h2>
     <todo-item [item]="item" *ngFor="let item of items"></todo-item>
-    <todo-list-footer [items]="items"></todo-list-footer>
+    <todo-list-footer></todo-list-footer>
   `,
   inputs: [
     'items',
