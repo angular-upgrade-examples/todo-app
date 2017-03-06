@@ -30,8 +30,6 @@
     "@angular/forms": "next",
     "@angular/platform-browser": "next",
     "@angular/platform-browser-dynamic": "next",
-    "@angular/upgrade": "next",
-    "angular": "1.6.2",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "5.0.1",
