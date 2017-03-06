@@ -2,17 +2,14 @@ import * as angular from 'angular';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
-import {sharedModule, SharedModule} from './shared/shared.module';
-import {todoItemModule, TodoItemModule} from './todo-item/todo-item.module';
+import {SharedModule} from './shared/shared.module';
+import {TodoItemModule} from './todo-item/todo-item.module';
 import {AppComponent} from './todo-app.component';
 import {FooterComponent} from './todo-app-footer.component';
 
 // Main AngularJS module
 export const todoAppModule = angular.
-  module('todoApp', [
-    sharedModule.name,
-    todoItemModule.name,
-  ]).
+  module('todoApp', []).
   directive('todoApp', downgradeComponent({component: AppComponent}));
 
 // Main Angular module
