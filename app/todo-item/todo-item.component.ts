@@ -1,3 +1,4 @@
+import {Logger} from '../shared/logger.service';
 import {TodoItem} from '../shared/todo-items.service';
 
 export const itemComponent: angular.IComponentOptions = {
@@ -16,5 +17,12 @@ export const itemComponent: angular.IComponentOptions = {
   },
   controller: class ItemController {
     item: TodoItem;
+
+    static $inject = ['logger'];
+    constructor(protected logger: Logger) {}
+
+    $onInit() {
+      this.logger.debug(`Created item: ${this.item.description}`);
+    }
   },
 };
