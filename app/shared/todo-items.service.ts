@@ -1,3 +1,4 @@
+import {Injectable} from '@angular/core';
 import {Logger} from './logger.service';
 
 export interface TodoItem {
@@ -5,17 +6,17 @@ export interface TodoItem {
   completed: boolean;
 }
 
+@Injectable()
 export class TodoItems {
   protected items: TodoItem[] = [
     {description: 'Do this', completed: false},
     {description: 'Do that', completed: false},
   ];
 
-  static $inject = ['$q', 'logger'];
-  constructor(protected $q: angular.IQService, protected logger: Logger) {}
+  constructor(protected logger: Logger) {}
 
-  fetch(): angular.IPromise<TodoItem[]> {
-    return this.$q.resolve(this.items);
+  fetch(): Promise<TodoItem[]> {
+    return Promise.resolve(this.items);
   }
 
   removeCompleted() {
