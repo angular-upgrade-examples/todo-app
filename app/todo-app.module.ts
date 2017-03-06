@@ -1,10 +1,11 @@
 import * as angular from 'angular';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeModule} from '@angular/upgrade/static';
+import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
 import {sharedModule} from './shared/shared.module';
 import {todoItemModule} from './todo-item/todo-item.module';
 import {appComponent} from './todo-app.component';
+import {FooterComponent} from './todo-app-footer.component';
 
 // Main AngularJS module
 export const todoAppModule = angular.
@@ -12,7 +13,12 @@ export const todoAppModule = angular.
     sharedModule.name,
     todoItemModule.name,
   ]).
-  component('todoApp', appComponent);
+  component('todoApp', appComponent).
+  directive('todoAppFooter', downgradeComponent({
+    component: FooterComponent,
+    inputs: ['items'],
+    outputs: ['removeCompleted'],
+  }));
 
 // Main Angular module
 @NgModule({
@@ -20,6 +26,8 @@ export const todoAppModule = angular.
     BrowserModule,
     UpgradeModule,
   ],
+  declarations: [FooterComponent],
+  entryComponents: [FooterComponent],
 })
 export class TodoAppModule {
   constructor(protected upgrade: UpgradeModule) {}
