@@ -1,18 +1,18 @@
 import * as angular from 'angular';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeModule} from '@angular/upgrade/static';
-import {sharedModule, SharedModule} from './shared/shared.module';
-import {todoListModule, TodoListModule} from './todo-list/todo-list.module';
-import {todoAppComponent} from './todo-app.component';
+import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
+import {SharedModule} from './shared/shared.module';
+import {todoItemModule} from './todo-item/todo-item.module';
+import {TodoListModule} from './todo-list/todo-list.module';
+import {TodoAppComponent} from './todo-app.component';
 
 // Main AngularJS module
 export const todoAppModule = angular.
   module('todoApp', [
-    sharedModule.name,
-    todoListModule.name,
+    todoItemModule.name,
   ]).
-  component('todoApp', todoAppComponent);
+  directive('todoApp', downgradeComponent({component: TodoAppComponent}));
 
 // Main Angular module
 @NgModule({
@@ -22,6 +22,8 @@ export const todoAppModule = angular.
     TodoListModule,
     UpgradeModule,
   ],
+  declarations: [TodoAppComponent],
+  entryComponents: [TodoAppComponent],
 })
 export class TodoAppModule {
   constructor(protected upgrade: UpgradeModule) {}

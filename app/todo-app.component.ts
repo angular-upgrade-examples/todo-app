@@ -1,17 +1,18 @@
+import {Component, OnInit} from '@angular/core';
 import {TodoItem, TodoItems} from './shared/todo-items.service';
 
-export const todoAppComponent: angular.IComponentOptions = {
+@Component({
+  selector: 'todo-app',
   template: `
-    <todo-list [items]="$ctrl.items"></todo-list>
+    <todo-list [items]="items"></todo-list>
   `,
-  controller: class TodoAppController {
-    items: TodoItem[] = [];
+})
+export class TodoAppComponent implements OnInit{
+  items: TodoItem[] = [];
 
-    static $inject = ['todoItems'];
-    constructor(protected todoItems: TodoItems) {}
+  constructor(protected todoItems: TodoItems) {}
 
-    $onInit() {
-      this.todoItems.fetch().then(items => this.items = items);
-    }
+  ngOnInit() {
+    this.todoItems.fetch().then(items => this.items = items);
   }
-};
+}
