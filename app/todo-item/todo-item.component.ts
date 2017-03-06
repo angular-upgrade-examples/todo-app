@@ -1,3 +1,5 @@
+import {Directive, ElementRef, Injector} from '@angular/core';
+import {UpgradeComponent} from '@angular/upgrade/static';
 import {Logger} from '../shared/logger.service';
 import {TodoItem} from '../shared/todo-items.service';
 
@@ -26,3 +28,13 @@ export const itemComponent: angular.IComponentOptions = {
     }
   },
 };
+
+@Directive({
+  selector: 'todo-item',
+  inputs: ['item']
+})
+export class ItemComponentFacade extends UpgradeComponent {
+  constructor(elementRef: ElementRef, injector: Injector) {
+    super('todoItem', elementRef, injector);
+  }
+}

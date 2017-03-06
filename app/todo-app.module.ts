@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {downgradeComponent, UpgradeModule} from '@angular/upgrade/static';
 import {sharedModule, SharedModule} from './shared/shared.module';
-import {todoItemModule} from './todo-item/todo-item.module';
+import {todoItemModule, TodoItemModule} from './todo-item/todo-item.module';
 import {appComponent} from './todo-app.component';
 import {FooterComponent} from './todo-app-footer.component';
 
@@ -21,6 +21,7 @@ export const todoAppModule = angular.
   imports: [
     BrowserModule,
     SharedModule,
+    TodoItemModule,
     UpgradeModule,
   ],
   declarations: [FooterComponent],
