@@ -11,9 +11,9 @@
     ],
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "dist",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "outDir": "dist-aot",
     "pretty": true,
     "rootDir": "app",
     "skipLibCheck": true,
@@ -25,5 +25,12 @@
   },
   "include": [
     "app/**/*"
-  ]
+  ],
+  "exclude": [
+    "app/main-jit.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "skipMetadataEmit" : true
+  }
 }
