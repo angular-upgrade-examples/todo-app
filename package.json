@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "An example project upgrading a simple phonecat app from AngularJS to Angular.",
   "scripts": {
-    "prebuild": "yarn run clean",
-    "build": "tsc",
-    "clean": "node --eval \"require('shelljs').rm('-rf', 'dist')\"",
-    "serve": "lite-server",
+    "prebuild-jit": "yarn run clean-jit",
+    "build-jit": "tsc -p tsconfig-jit.json",
+    "clean-jit": "node --eval \"require('shelljs').rm('-rf', 'dist-jit')\"",
+    "serve-jit": "node --eval \"require('shelljs').cp('index-jit.html', 'index.html')\" && lite-server",
+    "prebuild-aot": "yarn run clean-aot",
+    "build-aot": "ngc -p tsconfig-aot.json",
+    "clean-aot": "node --eval \"require('shelljs').rm('-rf', 'dist-aot')\"",
+    "serve-aot": "node --eval \"require('shelljs').cp('index-aot.html', 'index.html')\" && lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -40,6 +44,7 @@
   },
   "devDependencies": {
     "@types/angular": "^1.6.7",
+    "@angular/compiler-cli": "next",
     "@types/jasmine": "^2.5.43",
     "@types/systemjs": "^0.20.1",
     "lite-server": "^2.2.2",
